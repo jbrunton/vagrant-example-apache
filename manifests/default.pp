@@ -12,9 +12,10 @@ service { "apache2":
   require => Package["apache2"],
 }
 
-file { "/var/www/index.html":
+file { "/var/www":
   ensure  => "link",
-  target  => "/vagrant/index.html",
+  target  => "/vagrant/demo-app",
+  force   => true,
   require => Package["apache2"],
   notify  => Service["apache2"],
 }
